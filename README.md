@@ -1,3 +1,3 @@
 # Bookworm
-Craig Cockrum
+Craig Cockrum - CSS Styling
 Eric Hagood
