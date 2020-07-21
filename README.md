@@ -1,3 +1,4 @@
 # Bookworm
-Craig Cockrum - CSS Styling
-Eric Hagood
+Craig Cockrum - Css
+Eric Hagood - Backend
+Shirley Kaffrey
