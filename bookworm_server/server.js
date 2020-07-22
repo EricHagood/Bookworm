@@ -11,7 +11,7 @@ mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 
 
 
-mongoose.connect('mongodb://localhost:27017/holidays', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost:27017/bookworm', { useNewUrlParser: true })
 mongoose.connection.once('open', ()=>{
     console.log('connected to mongoose...')
 })
