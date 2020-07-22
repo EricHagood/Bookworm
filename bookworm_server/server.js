@@ -11,11 +11,7 @@ mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 
 
 
-<<<<<<< HEAD
 mongoose.connect('mongodb://localhost:27017/books', { useNewUrlParser: true, useUnifiedTopology: true })
-=======
-mongoose.connect('mongodb://localhost:27017/bookworm', { useNewUrlParser: true })
->>>>>>> 7dc4075e4b13c7c0612eace9613046acb5d875e7
 mongoose.connection.once('open', ()=>{
     console.log('connected to mongoose...')
 })
