@@ -59,11 +59,11 @@ export default class NewForm extends Component {
                     onChange={ (evt) => this.handleChange(evt) }
                     value={ this.state.title }/>
 
+
                 <label htmlFor="authors">Authors: </label>
                 <input type="text" id="authors"
                     onChange={ (evt) => this.handleChange(evt) }
                     value={ this.state.authors }/>
-
                 <label htmlFor="subtitle">Subtitle: </label>
                 <input type="text" id="subtitle"
                     onChange={ (evt) => this.handleChange(evt) }
@@ -78,10 +78,7 @@ export default class NewForm extends Component {
                 <input type="text" id="thumbnail"
                     onChange={ (evt) => this.handleChange(evt) }
                     value={ this.state.thumbnail }/>
-                                  
-               
-            
-                <input type="submit" value="Add Book"/>
+                    <input type="submit" value="Add Book"/>
             </form>
         )
     }

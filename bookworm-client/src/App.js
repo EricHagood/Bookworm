@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react'
 import './App.css';
  
@@ -6,9 +7,7 @@ import NewForm from './components/NewForm';
 import BookView from './components/BookView';
 
 let baseUrl = 'http://localhost:3003'
-export default class App extends Component {
-
-  
+export default class App extends Component {  
   constructor() {
     super();
     this.state = {
@@ -32,7 +31,6 @@ export default class App extends Component {
       console.log('error', err);
     });
   };
-
   addBook = (newBook) => {
     const copyBooks = [...this.state.books];
     copyBooks.push(newBook);
