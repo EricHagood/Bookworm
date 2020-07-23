@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../App.css'
 
 export default class Search extends Component {
     constructor(props){
@@ -30,10 +31,10 @@ export default class Search extends Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label htmlFor='bookName'>Book</label>
-                    <input id='bookName' type='text' value={this.state.bookName} onChange={this.handleChange} />
+            <div className="search-container">
+                <form className="search-form" onSubmit={this.handleSubmit}>
+                    <label htmlFor='bookName'></label>
+                    <input id='bookName' type='text' placeholder='search by title' value={this.state.bookName} onChange={this.handleChange} />
                     <input type='submit' value='Search Books' />
                 </form>
             </div>

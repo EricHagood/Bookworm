@@ -128,13 +128,22 @@ export default class App extends Component {
   render() {
     return (
       <div>
-      <nav>
-      <span onClick={ () => { this.setState({ currentView : 'home' }) } }>Home </span> 
-      <span onClick={ () => { this.setState({ currentView : 'my_collection' }) } }> My Collections</span> 
-      <span onClick={ () => { this.setState({ currentView : 'favorites' }) } }> Favorites</span> 
-
-      <Search returnedBooks={this.state.returnedBooks} sendBooks = {this.recieveBooks} />
-      </nav>
+        <div className="header-container">
+          <header>
+            <h1 className="main-title">BOOKworm</h1>
+          </header>
+        </div>
+      <div div className="nav-container">
+        <nav>
+          <div className="nav-item">
+          <span onClick={ () => { this.setState({ currentView : 'home' }) } }>Home </span> 
+          </div>
+          <span className="nav-item" onClick={ () => { this.setState({ currentView : 'my_collection' }) } }> My Collections</span> 
+          <span className="nav-item" onClick={ () => { this.setState({ currentView : 'favorites' }) } }> Favorites</span> 
+        </nav>
+          <Search returnedBooks={this.state.returnedBooks} sendBooks = {this.recieveBooks} />
+       
+      </div>
         <NewForm baseUrl={ baseUrl } addBook={ this.addBook}/>
         {
           this.state.clickedBook ? <BookView book={ this.state.clickedBook } /> : ''
