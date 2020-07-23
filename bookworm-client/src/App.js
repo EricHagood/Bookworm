@@ -6,6 +6,8 @@ import './App.css';
 import NewForm from './components/NewForm';
 import BookView from './components/BookView';
 import CollectionView from './components/CollectionView';
+import FavoriteView from './components/FavoriteView';
+import HomeView from './components/HomeView';
 import Search from './components/Search'
 
 let baseUrl = 'http://localhost:3003'
@@ -15,7 +17,7 @@ export default class App extends Component {
     this.state = {
       books: [],
       clickedBook: null,
-      collectionClicked : false,
+      currentView : 'home' // home, collection, favorite
       returnedBooks: []
     };
     this.recieveBooks = this.recieveBooks.bind(this)
@@ -54,7 +56,8 @@ export default class App extends Component {
         description: updateBook.description,
         thumbnail: updateBook.thumbnail,
         smallimg: updateBook.smallimg, 
-        isFavorite: updateBook.isFavorite   
+        isFavorite: updateBook.isFavorite,
+        myCollection:  updateBook.myCollection
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -88,52 +91,55 @@ export default class App extends Component {
     });
   }
 
+  clickOnBook = (book) => {
+    this.setState({
+      clickedBook : book
+    })
+  }
+
+  ViewRender = () => {
+    if (this.state.currentView === 'home') {
+      return <HomeView books={this.state.books} updateBook={this.updateBook} clickOnBook={this.clickOnBook} deleteBook={this.deleteBook}/>
+    } else if (this.state.currentView === 'my_collection') {
+      let my_collection = []
+      for (let i = 0; i < this.state.books.length; i++) {
+          if (this.state.books[i].myCollection === true) {
+            my_collection.push(this.state.books[i])
+          }
+      }
+      return <CollectionView books={my_collection} clickOnBook={this.clickOnBook} />
+    } else if (this.state.currentView === 'favorites') {
+      let favorites = []
+      for (let i = 0; i < this.state.books.length; i++) {
+          if (this.state.books[i].isFavorite === true) {
+            favorites.push(this.state.books[i])
+          }
+      }
+      return <FavoriteView books={favorites} clickOnBook={this.clickOnBook} />
+    }
+  }
+
   recieveBooks(data){
     this.setState({
       recieveBooks: data
     })
   }
-
+      
   render() {
     return (
       <div>
-            <nav>
-      <span>Home</span> 
-      <span onClick={ () => {  } }>My Collections</span> 
-      <span>Favorites</span> 
-      {/* <form>
-      <input type="text" id="search"/> 
-      <input type="submit" value ="search"/>
+      <nav>
+      <span onClick={ () => { this.setState({ currentView : 'home' }) } }>Home </span> 
+      <span onClick={ () => { this.setState({ currentView : 'my_collection' }) } }> My Collections</span> 
+      <span onClick={ () => { this.setState({ currentView : 'favorites' }) } }> Favorites</span> 
 
-
-      </form> */}
       <Search returnedBooks={this.state.returnedBooks} sendBooks = {this.recieveBooks} />
       </nav>
         <NewForm baseUrl={ baseUrl } addBook={ this.addBook}/>
         {
           this.state.clickedBook ? <BookView book={ this.state.clickedBook } /> : ''
         }
-        {
-          this.state.collectionClicked ? <CollectionView books={ this.state.books } /> : ''
-        }
-      {
-        this.state.books.map( (book, index) => {
-          return (<div key={index}>
-            <div onClick={ () => { this.setState({ clickedBook : book }) } }>
-              <p>title: {book.title}</p>
-              <p>author: { book.authors }</p>        
-              <img src = {book.thumbnail} alt="books"></img>
-            </div>
-            <button onClick = {()=>{this.updateBook(book, index)}}>Add to Collection </button>
-            {
-              book.isFavorite ?
-                <button onClick={()=> {  book.isFavorite = !book.isFavorite; this.updateBook(book, index)}}>Unfavorite</button> : <button onClick={()=> {book.isFavorite = !book.isFavorite; this.updateBook(book, index)}}>Favorite</button>
-            }
-            </div>
-            )
-          
-        })
-      }
+      <this.ViewRender />
       </div>
     );
    }

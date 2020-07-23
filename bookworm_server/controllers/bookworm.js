@@ -30,7 +30,7 @@ bookworm.put('/:id', (req, res)=>{
 })
 
 bookworm.delete('/:id', (req, res)=>{
-    Bookworm.findByIdAndDelete(re1.params.id, (err, deletedBook)=>{
+    Bookworm.findByIdAndDelete(req.params.id, (err, deletedBook)=>{
         if(err){
             res.status(400).json({Error: err.message})
         }

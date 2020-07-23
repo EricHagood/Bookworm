@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-export default class CollectionView extends Component {
+export default class FavoriteView extends Component {
   
     render() {
         return (this.props.books.map( (book, index) => {
