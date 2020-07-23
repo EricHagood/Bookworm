@@ -19,7 +19,12 @@ export default class Search extends Component {
     handleSubmit(event){
         event.preventDefault()
         this.setState({
-            searchURL: this.state.baseURL + this.state.bookName
+            searchURL: this.state.baseURL + this.state.bookName,
+            bookName: ''
+        }, () =>{
+            fetch(this.state.searchURL).then(response => {
+                return response.json()
+            }).then(json => this.props.returnedBooks = json)
         })
     }
 

@@ -15,7 +15,8 @@ export default class App extends Component {
     this.state = {
       books: [],
       clickedBook: null,
-      collectionClicked : false
+      collectionClicked : false,
+      returnedBooks: []
     };
   }
   
@@ -99,7 +100,7 @@ export default class App extends Component {
 
 
       </form> */}
-      <Search />
+      <Search returnedBooks={this.state.returnedBooks} />
       </nav>
         <NewForm baseUrl={ baseUrl } addBook={ this.addBook}/>
         {
