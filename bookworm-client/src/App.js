@@ -4,6 +4,7 @@ import './App.css';
 
 import NewForm from './components/NewForm';
 import BookView from './components/BookView';
+import CollectionView from './components/CollectionView';
 
 let baseUrl = 'http://localhost:3003'
 export default class App extends Component {
@@ -13,7 +14,8 @@ export default class App extends Component {
     super();
     this.state = {
       books: [],
-      clickedBook: null
+      clickedBook: null,
+      collectionClicked : false
     };
   }
   
@@ -37,6 +39,7 @@ export default class App extends Component {
     const copyBooks = [...this.state.books];
     copyBooks.push(newBook);
     this.setState({
+      books: copyBooks
     });
   }
 
@@ -89,7 +92,7 @@ export default class App extends Component {
       <div>
             <nav>
       <span>Home</span> 
-      <span>My Collections</span> 
+      <span onClick={ () => {  } }>My Collections</span> 
       <span>Favorites</span> 
       <form>
       <input type="text" id="search"/> 
@@ -101,6 +104,9 @@ export default class App extends Component {
         <NewForm baseUrl={ baseUrl } addBook={ this.addBook}/>
         {
           this.state.clickedBook ? <BookView book={ this.state.clickedBook } /> : ''
+        }
+        {
+          this.state.collectionClicked ? <CollectionView books={ this.state.books } /> : ''
         }
       {
         this.state.books.map( (book, index) => {
