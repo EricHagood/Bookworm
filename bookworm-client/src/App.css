@@ -1,38 +1,48 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.header-container {
+  background-image: url('/img/open_book_cropped.jpeg');
+  background-size: cover ;
+  background-repeat: no-repeat;
+  height: 400px;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-title {
+  font-size: 72pt;
+  color: rgb(223, 220, 220);
+  margin-top: 0;
+}
+.nav-container {
+  background-color: rgb(86,91,94) ;
+  background-size: cover ;
+  background-repeat: no-repeat;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  height: 50px;
+  margin: 0 0 20px 0;
+}
+nav {
+  width: 50%;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color:  rgb(223, 220, 220);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  justify-content: space-evenly;
 }
+.search-container {
+  display: inline;
+  flex-direction: row;
+  justify-content: right;
+  width: 50%;
+  margin-left: 30%;
+  align-items: center;
 
-.App-link {
-  color: #61dafb;
+
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-form {
+ 
+  flex-direction: row;
+  justify-content: right;
+  
+  
 }

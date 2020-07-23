@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../App.css'
 
 export default class NewForm extends Component {
     state = {
@@ -53,33 +54,35 @@ export default class NewForm extends Component {
 
     render() {
         return (
-            <form onSubmit={ (evt) => this.handleSubmit(evt) }>
-                <label htmlFor="title">Title: </label>
-                <input type="text" id="title"
-                    onChange={ (evt) => this.handleChange(evt) }
-                    value={ this.state.title }/>
+            <div className="add-container">
+                <form onSubmit={ (evt) => this.handleSubmit(evt) }>
+                    <label htmlFor="title">Title: </label>
+                    <input type="text" id="title"
+                        onChange={ (evt) => this.handleChange(evt) }
+                        value={ this.state.title }/>
 
 
-                <label htmlFor="authors">Authors: </label>
-                <input type="text" id="authors"
-                    onChange={ (evt) => this.handleChange(evt) }
-                    value={ this.state.authors }/>
-                <label htmlFor="subtitle">Subtitle: </label>
-                <input type="text" id="subtitle"
-                    onChange={ (evt) => this.handleChange(evt) }
-                    value={ this.state.subtitle }/>   
+                    <label htmlFor="authors">Authors: </label>
+                    <input type="text" id="authors"
+                        onChange={ (evt) => this.handleChange(evt) }
+                        value={ this.state.authors }/>
+                    <label htmlFor="subtitle">Subtitle: </label>
+                    <input type="text" id="subtitle"
+                        onChange={ (evt) => this.handleChange(evt) }
+                        value={ this.state.subtitle }/>   
 
-                <label htmlFor="description">Description: </label>
-                <input type="text" id="description"
-                    onChange={ (evt) => this.handleChange(evt) }
-                    value={ this.state.description }/>  
-                    
-                <label htmlFor="thumbnail">Thumbnail: </label>
-                <input type="text" id="thumbnail"
-                    onChange={ (evt) => this.handleChange(evt) }
-                    value={ this.state.thumbnail }/>
-                    <input type="submit" value="Add Book"/>
-            </form>
+                    <label htmlFor="description">Description: </label>
+                    <input type="text" id="description"
+                        onChange={ (evt) => this.handleChange(evt) }
+                        value={ this.state.description }/>  
+                        
+                    <label htmlFor="thumbnail">Thumbnail: </label>
+                    <input type="text" id="thumbnail"
+                        onChange={ (evt) => this.handleChange(evt) }
+                        value={ this.state.thumbnail }/>
+                        <input type="submit" value="Add Book"/>
+                </form>
+            </div>
         )
     }
 }
