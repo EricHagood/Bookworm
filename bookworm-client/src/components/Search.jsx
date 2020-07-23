@@ -24,7 +24,7 @@ export default class Search extends Component {
         }, () =>{
             fetch(this.state.searchURL).then(response => {
                 return response.json()
-            }).then(json => this.props.returnedBooks = json)
+            }).then(json => this.props.sendBooks(json))
         })
     }
 

@@ -20,6 +20,7 @@ export default class App extends Component {
       currentView : 'home' // home, collection, favorite
       returnedBooks: []
     };
+    this.recieveBooks = this.recieveBooks.bind(this)
   }
   
   componentDidMount() {
@@ -118,14 +119,21 @@ export default class App extends Component {
     }
   }
 
+  recieveBooks(data){
+    this.setState({
+      recieveBooks: data
+    })
+  }
+      
   render() {
     return (
       <div>
-            <nav>
+      <nav>
       <span onClick={ () => { this.setState({ currentView : 'home' }) } }>Home </span> 
       <span onClick={ () => { this.setState({ currentView : 'my_collection' }) } }> My Collections</span> 
       <span onClick={ () => { this.setState({ currentView : 'favorites' }) } }> Favorites</span> 
-      <Search returnedBooks={this.state.returnedBooks} />
+
+      <Search returnedBooks={this.state.returnedBooks} sendBooks = {this.recieveBooks} />
       </nav>
         <NewForm baseUrl={ baseUrl } addBook={ this.addBook}/>
         {
