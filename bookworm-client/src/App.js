@@ -18,6 +18,7 @@ export default class App extends Component {
       collectionClicked : false,
       returnedBooks: []
     };
+    this.recieveBooks = this.recieveBooks.bind(this)
   }
   
   componentDidMount() {
@@ -87,6 +88,12 @@ export default class App extends Component {
     });
   }
 
+  recieveBooks(data){
+    this.setState({
+      recieveBooks: data
+    })
+  }
+
   render() {
     return (
       <div>
@@ -100,7 +107,7 @@ export default class App extends Component {
 
 
       </form> */}
-      <Search returnedBooks={this.state.returnedBooks} />
+      <Search returnedBooks={this.state.returnedBooks} sendBooks = {this.recieveBooks} />
       </nav>
         <NewForm baseUrl={ baseUrl } addBook={ this.addBook}/>
         {
