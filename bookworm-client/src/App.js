@@ -17,7 +17,7 @@ export default class App extends Component {
     this.state = {
       books: [],
       clickedBook: null,
-      currentView : 'home' // home, collection, favorite
+      currentView : 'home', // home, collection, favorite
       returnedBooks: []
     };
     this.recieveBooks = this.recieveBooks.bind(this)
