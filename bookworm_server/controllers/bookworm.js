@@ -7,7 +7,7 @@ bookworm.get('/', (req, res)=>{
         if(err){
             res.status(400).json({Error: err.message})
         }
-        res.sendStatus(200).json(foundBook)
+        res.status(200).json(foundBook)
     })
 })
 
