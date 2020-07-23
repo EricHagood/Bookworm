@@ -1,13 +1,6 @@
 import React, {Component} from 'react'
 
 export default class BookView extends Component {
-
-    constructor() {
-        super();
-        this.state = {
-            books: []
-        };
-    }
  
     render() {       
         return (<div>
