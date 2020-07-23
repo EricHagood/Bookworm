@@ -6,6 +6,7 @@ import './App.css';
 import NewForm from './components/NewForm';
 import BookView from './components/BookView';
 import CollectionView from './components/CollectionView';
+import Search from './components/Search'
 
 let baseUrl = 'http://localhost:3003'
 export default class App extends Component {  
@@ -92,12 +93,13 @@ export default class App extends Component {
       <span>Home</span> 
       <span onClick={ () => {  } }>My Collections</span> 
       <span>Favorites</span> 
-      <form>
+      {/* <form>
       <input type="text" id="search"/> 
       <input type="submit" value ="search"/>
 
 
-      </form>
+      </form> */}
+      <Search />
       </nav>
         <NewForm baseUrl={ baseUrl } addBook={ this.addBook}/>
         {
