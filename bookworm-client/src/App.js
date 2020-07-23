@@ -8,6 +8,7 @@ import BookView from './components/BookView';
 import CollectionView from './components/CollectionView';
 import FavoriteView from './components/FavoriteView';
 import HomeView from './components/HomeView';
+import Search from './components/Search'
 
 let baseUrl = 'http://localhost:3003'
 export default class App extends Component {  
@@ -17,6 +18,7 @@ export default class App extends Component {
       books: [],
       clickedBook: null,
       currentView : 'home' // home, collection, favorite
+      returnedBooks: []
     };
   }
   
@@ -123,12 +125,7 @@ export default class App extends Component {
       <span onClick={ () => { this.setState({ currentView : 'home' }) } }>Home </span> 
       <span onClick={ () => { this.setState({ currentView : 'my_collection' }) } }> My Collections</span> 
       <span onClick={ () => { this.setState({ currentView : 'favorites' }) } }> Favorites</span> 
-      <form>
-      <input type="text" id="search"/> 
-      <input type="submit" value ="search"/>
-
-
-      </form>
+      <Search returnedBooks={this.state.returnedBooks} />
       </nav>
         <NewForm baseUrl={ baseUrl } addBook={ this.addBook}/>
         {
