@@ -135,9 +135,11 @@ export default class App extends Component {
         </div>
       <div div className="nav-container">
         <nav>
+          <div className="nav-item">
           <span onClick={ () => { this.setState({ currentView : 'home' }) } }>Home </span> 
-          <span onClick={ () => { this.setState({ currentView : 'my_collection' }) } }> My Collections</span> 
-          <span onClick={ () => { this.setState({ currentView : 'favorites' }) } }> Favorites</span> 
+          </div>
+          <span className="nav-item" onClick={ () => { this.setState({ currentView : 'my_collection' }) } }> My Collections</span> 
+          <span className="nav-item" onClick={ () => { this.setState({ currentView : 'favorites' }) } }> Favorites</span> 
         </nav>
           <Search returnedBooks={this.state.returnedBooks} sendBooks = {this.recieveBooks} />
        

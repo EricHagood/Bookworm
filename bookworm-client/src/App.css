@@ -12,7 +12,7 @@
   margin-top: 0;
 }
 .nav-container {
-  background-color: rgb(86,91,94) ;
+  background-color: rgb(86,91,94);
   background-size: cover ;
   background-repeat: no-repeat;
   display: flex;
@@ -26,8 +26,17 @@ nav {
   color:  rgb(223, 220, 220);
   display: flex;
   align-items: center;
-  padding: 20px;
   justify-content: space-evenly;
+}
+.nav-item {
+  padding:16px;
+  background-color: rgb(86,91,94);
+ 
+}
+.nav-item:hover {
+  background-color: rgb(223, 220, 220);
+  color: rgb(86,91,94);
+ 
 }
 .search-container {
   display: inline;
@@ -40,9 +49,6 @@ nav {
 
 }
 .search-form {
- 
-  flex-direction: row;
-  justify-content: right;
-  
+margin-top: 15px;
   
 }
