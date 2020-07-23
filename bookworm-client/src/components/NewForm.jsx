@@ -21,11 +21,11 @@ export default class NewForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        fetch(this.props.baseUrl + '/books', {
+        fetch(this.props.baseUrl + '/bookworm', {
             method: 'POST',
             body: JSON.stringify({
                 title: this.state.title,
-                author: this.state.author,
+                authors: this.state.authors,
                 subtitle: this.state.subtitle,
                 description: this.state.description,
                 thumbnail: this.state.thumbnail,
@@ -41,7 +41,7 @@ export default class NewForm extends Component {
             this.props.addBook(data);
             this.setState({
                 title: '',
-                author: '',
+                authors: '',
                 subtitle: '',
                 description: '',
                 thumbnail:  '',       
@@ -59,10 +59,10 @@ export default class NewForm extends Component {
                     onChange={ (evt) => this.handleChange(evt) }
                     value={ this.state.title }/>
 
-                <label htmlFor="author">Author: </label>
-                <input type="text" id="author"
+                <label htmlFor="authors">Authors: </label>
+                <input type="text" id="authors"
                     onChange={ (evt) => this.handleChange(evt) }
-                    value={ this.state.author }/>
+                    value={ this.state.authors }/>
 
                 <label htmlFor="subtitle">Subtitle: </label>
                 <input type="text" id="subtitle"
@@ -74,10 +74,10 @@ export default class NewForm extends Component {
                     onChange={ (evt) => this.handleChange(evt) }
                     value={ this.state.description }/>  
                     
-                <label htmlFor="smallimg">Smallimg: </label>
-                <input type="text" id="smallimg"
+                <label htmlFor="thumbnail">Thumbnail: </label>
+                <input type="text" id="thumbnail"
                     onChange={ (evt) => this.handleChange(evt) }
-                    value={ this.state.smallimg }/>
+                    value={ this.state.thumbnail }/>
                                   
                
             

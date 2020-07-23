@@ -1,17 +1,19 @@
-import React from 'react';
-
+import React, { Component } from 'react'
 import './App.css';
+ 
 
 import NewForm from './components/NewForm';
+import BookView from './components/BookView';
 
 let baseUrl = 'http://localhost:3003'
-export default class App extends React.Component {
+export default class App extends Component {
 
   
   constructor() {
     super();
     this.state = {
-      books: []
+      books: [],
+      clickedBook: null
     };
   }
   
@@ -20,7 +22,7 @@ export default class App extends React.Component {
   }
 
   getBook() {
-    fetch('http://localhost:3003/books').then(response => {
+    fetch('http://localhost:3003/bookworm').then(response => {
       return response.json();
     }).then(data => {
       this.setState({
@@ -30,6 +32,7 @@ export default class App extends React.Component {
       console.log('error', err);
     });
   };
+
   addBook = (newBook) => {
     const copyBooks = [...this.state.books];
     copyBooks.push(newBook);
@@ -38,7 +41,7 @@ export default class App extends React.Component {
   }
 
   updateBook = (updateBook, index) => {
-    fetch('http://localhost:3003/books/' + updateBook._id, {
+    fetch('http://localhost:3003/bookworm/' + updateBook._id, {
       method: 'PUT',
       body: JSON.stringify({
         title: updateBook.title,
@@ -47,7 +50,7 @@ export default class App extends React.Component {
         description: updateBook.description,
         thumbnail: updateBook.thumbnail,
         smallimg: updateBook.smallimg, 
-        isFavorite: updateBook.isFavorite   //????????????????
+        isFavorite: updateBook.isFavorite   
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -64,7 +67,7 @@ export default class App extends React.Component {
   }
 
   deleteBook = (deleteBook, index) => {
-    fetch('http://localhost:3003/books/' + deleteBook._id, {
+    fetch('http://localhost:3003/bookworm/' + deleteBook._id, {
       method: 'DELETE',
      
       headers: {
@@ -84,19 +87,35 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
+            <nav>
+      <span>Home</span> 
+      <span>My Collections</span> 
+      <span>Favorites</span> 
+      <form>
+      <input type="text" id="search"/> 
+      <input type="submit" value ="search"/>
+
+
+      </form>
+      </nav>
         <NewForm baseUrl={ baseUrl } addBook={ this.addBook}/>
+        {
+          this.state.clickedBook ? <BookView book={ this.state.clickedBook } /> : ''
+        }
       {
         this.state.books.map( (book, index) => {
-          return (<div key={index}><p>title: {book.title}</p>
-              <p>author: { book.author }</p>
-              <p>subtitle: { book.subtitle }</p> 
-              <p>description: { book.description }</p>
-              <p>thumbnail: { book.thumbnail }</p>              
-              <img src = {book.image} alt="books"></img>
-              <p>isFavorite: { book.isFavorite }</p>
-              <button onClick = {()=>{this.updateBook(book, index)}}>Add to Collection </button>
-              <button onClick={()=> {this.updateBook(book, index)}}>Unfavorite</button>
-              </div>
+          return (<div key={index}>
+            <div onClick={ () => { this.setState({ clickedBook : book }) } }>
+              <p>title: {book.title}</p>
+              <p>author: { book.authors }</p>        
+              <img src = {book.thumbnail} alt="books"></img>
+            </div>
+            <button onClick = {()=>{this.updateBook(book, index)}}>Add to Collection </button>
+            {
+              book.isFavorite ?
+                <button onClick={()=> {  book.isFavorite = !book.isFavorite; this.updateBook(book, index)}}>Unfavorite</button> : <button onClick={()=> {book.isFavorite = !book.isFavorite; this.updateBook(book, index)}}>Favorite</button>
+            }
+            </div>
             )
           
         })

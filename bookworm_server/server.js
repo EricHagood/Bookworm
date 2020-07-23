@@ -5,13 +5,12 @@ const cors = require('cors')
 const PORT = 3003
 const bookwormController = require('./controllers/bookworm.js')
 
-// Error / Disconnection
-mongoose.connection.on('error', err => console.log(err.message + ' is Mongod not running?'))
-mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
-
-
-
 mongoose.connect('mongodb://localhost:27017/bookworm', { useNewUrlParser: true })
+
+// Error / Disconnection
+// mongoose.connection.on('error', err => console.log(err.message + ' is Mongod not running?'))
+// mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
+
 mongoose.connection.once('open', ()=>{
     console.log('connected to mongoose...')
 })
