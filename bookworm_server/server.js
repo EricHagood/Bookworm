@@ -30,7 +30,7 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 
-app.use('/books', bookwormController)
+app.use('/bookworm', bookwormController)
 
 app.listen(PORT, () =>{
     console.log("Listening on port: ", PORT)
