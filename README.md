@@ -1,4 +1,4 @@
 # Bookworm
-Craig Cockrum
-Eric Hagood
+Craig Cockrum - Css
+Eric Hagood - Backend
 Shirley Kaffrey
