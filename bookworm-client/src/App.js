@@ -19,6 +19,7 @@ export default class App extends Component {
       books: [],
       clickedBook: null,
       currentView : 'home', // home, collection, favorite
+
     };
     this.recieveBooks = this.recieveBooks.bind(this)
   }
@@ -42,7 +43,8 @@ export default class App extends Component {
     const copyBooks = [...this.state.books];
     copyBooks.push(newBook);
     this.setState({
-      books: copyBooks
+      books: copyBooks,
+      currentView: 'home'
     });
   }
 
@@ -116,6 +118,8 @@ export default class App extends Component {
           }
       }
       return <FavoriteView books={favorites} clickOnBook={this.clickOnBook} />
+    } else if (this.state.currentView === 'add') {
+      return <NewForm baseUrl={ baseUrl } addBook={ this.addBook}/>
     }
   }
 
@@ -140,11 +144,11 @@ export default class App extends Component {
           </div>
           <span className="nav-item" onClick={ () => { this.setState({ currentView : 'my_collection' }) } }> My Collections</span> 
           <span className="nav-item" onClick={ () => { this.setState({ currentView : 'favorites' }) } }> Favorites</span> 
+          <span className="nav-item" onClick={ () => { this.setState({ currentView : 'add' }) } }> Add Book</span> 
         </nav>
           <Search returnedBooks={this.state.returnedBooks} sendBooks = {this.recieveBooks} />
        
-      </div>
-        <NewForm baseUrl={ baseUrl } addBook={ this.addBook}/>
+      </div>   
         {
           this.state.clickedBook ? <BookView book={ this.state.clickedBook } /> : ''
         }
