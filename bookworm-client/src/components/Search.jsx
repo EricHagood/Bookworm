@@ -6,6 +6,7 @@ export default class Search extends Component {
         super(props)
         this.state = {
             baseURL: 'https://www.googleapis.com/books/v1/volumes?q=',
+            maxResultsURL: '&startIndex=0&maxResults=9',
             bookName: '',
             searchURL: ''
         }
@@ -20,7 +21,7 @@ export default class Search extends Component {
     handleSubmit(event){
         event.preventDefault()
         this.setState({
-            searchURL: this.state.baseURL + this.state.bookName,
+            searchURL: this.state.baseURL + this.state.bookName + this.state.maxResultsURL,
             bookName: ''
         }, () =>{
             fetch(this.state.searchURL).then(response => {
