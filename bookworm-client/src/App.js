@@ -182,7 +182,9 @@ export default class App extends Component {
           this.state.clickedBook ? <BookView book={ this.state.clickedBook } /> : ''
         } 
       {this.state.returnedBooks ? (
+
         <SearchView books={this.state.returnedBooks.items} addBookFromApi = {this.addBookFromApi} />
+
       ): (
         ''
       )}

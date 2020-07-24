@@ -15,8 +15,11 @@ export default class SeachView extends Component {
                         ''
                     )} className="thumbnail" alt="books"></img>
               </div>
+
              
               <button onClick={()=> { this.props.addBookFromApi( book ) }}>Add</button>
+
+    
               </div>
               )
             
