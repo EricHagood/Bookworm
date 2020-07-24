@@ -9,6 +9,7 @@ import CollectionView from './components/CollectionView';
 import FavoriteView from './components/FavoriteView';
 import HomeView from './components/HomeView';
 import Search from './components/Search'
+import SearchView from './components/SearchView'
 
 let baseUrl = 'http://localhost:3003'
 export default class App extends Component {  
@@ -18,7 +19,6 @@ export default class App extends Component {
       books: [],
       clickedBook: null,
       currentView : 'home', // home, collection, favorite
-      returnedBooks: []
     };
     this.recieveBooks = this.recieveBooks.bind(this)
   }
@@ -121,7 +121,7 @@ export default class App extends Component {
 
   recieveBooks(data){
     this.setState({
-      recieveBooks: data
+      returnedBooks: data
     })
   }
       
@@ -148,6 +148,11 @@ export default class App extends Component {
         {
           this.state.clickedBook ? <BookView book={ this.state.clickedBook } /> : ''
         }
+      {this.state.returnedBooks ? (
+        <SearchView books={this.state.returnedBooks.items} updateBooks={this.updateBook} clickOnBook={this.clickOnBook} deleteBook={this.deleteBook} />
+      ): (
+        ''
+      )}
       <this.ViewRender />
       </div>
     );
