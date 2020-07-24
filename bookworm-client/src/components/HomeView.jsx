@@ -8,7 +8,7 @@ export default class HomeView extends Component {
               <div onClick={ () => { this.props.clickOnBook(book) } }>
                 <p>Title: {book.title}</p>
                 <p>Authors: { book.authors.toString() }</p>        
-                <img src = {book.thumbnail} alt="books"></img>
+                <img src = {book.thumbnail} className="thumbnail" alt="books"></img>
               </div>
               {
                   !book.myCollection ?
