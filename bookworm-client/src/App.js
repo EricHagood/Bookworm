@@ -177,17 +177,18 @@ export default class App extends Component {
           <Search returnedBooks={this.state.returnedBooks} sendBooks = {this.recieveBooks} />
        
       </div>  
-      <div id = "details"></div>
+      <div className='view-container' id = "details">
         {
           this.state.clickedBook ? <BookView book={ this.state.clickedBook } /> : ''
         } 
       {this.state.returnedBooks ? (
-
+      
         <SearchView books={this.state.returnedBooks.items} addBookFromApi = {this.addBookFromApi} />
 
       ): (
         ''
       )}
+      </div>
       <this.ViewRender /><span id="bottom" ></span>
       </div>
     );
