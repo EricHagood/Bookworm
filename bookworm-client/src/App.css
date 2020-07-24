@@ -87,8 +87,14 @@ margin-top: 10px;
   display: flex;
   flex-direction: column;
   width: 160px;
-  padding: 15px;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-bottom: 10px;
   
+}
+.column-container {
+  margin-bottom: 0px;
+ 
 }
 .view-container {
   display:flex;
@@ -98,5 +104,12 @@ margin-top: 10px;
   max-width: 700px;
   padding: 10px;
   margin: auto;
+  border: 2px solid rgb(86,91,94);
+}
+.search-results-title {
+  color: rgb(86,91,94);
+  margin-left: 250px;
+  margin-bottom: 0px;
+  margin-top: 50px
 }
 

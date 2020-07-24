@@ -177,6 +177,7 @@ export default class App extends Component {
           <Search returnedBooks={this.state.returnedBooks} sendBooks = {this.recieveBooks} />
        
       </div>  
+      <h1 className='search-results-title'> Search Results</h1>
       <div className='view-container' id = "details">
         {
           this.state.clickedBook ? <BookView book={ this.state.clickedBook } /> : ''
