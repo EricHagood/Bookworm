@@ -34,8 +34,8 @@ export default class Search extends Component {
             <div className="search-container">
                 <form className="search-form" onSubmit={this.handleSubmit}>
                     <label htmlFor='bookName'></label>
-                    <input id='bookName' type='text' placeholder='search by title' value={this.state.bookName} onChange={this.handleChange} />
-                    <input type='submit' value='Search Books' />
+                    <input className='search-box' id='bookName' type='text' placeholder='search by title' value={this.state.bookName} onChange={this.handleChange} />
+                    <input className='button' type='submit' value='Search Books' />
                 </form>
             </div>
         )
