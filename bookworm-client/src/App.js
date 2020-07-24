@@ -75,6 +75,31 @@ export default class App extends Component {
     });
   }
 
+  addBookFromApi = (book) => {
+    console.log(book)
+    fetch('http://localhost:3003/bookworm/', {
+        method: 'POST',
+        body: JSON.stringify({
+          title: book.volumeInfo.title,
+          authors: book.volumeInfo.authors,
+          subtitle: "",
+          description: book.volumeInfo.description,
+          thumbnail: book.volumeInfo.imageLinks.thumbnail,
+       
+      }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }).then(res => {
+        return res.json();
+  }).then(data => {
+    this.addBook(data);
+    let bottom = document.getElementById("bottom")
+    bottom.scrollIntoView()
+   });
+}
+
+
   deleteBook = (deleteBook, index) => {
     fetch('http://localhost:3003/bookworm/' + deleteBook._id, {
       method: 'DELETE',
@@ -97,6 +122,9 @@ export default class App extends Component {
     this.setState({
       clickedBook : book
     })
+    setTimeout(() => {  let description = document.getElementById("details")
+    description.scrollIntoView() }, 500);
+    
   }
 
   ViewRender = () => {
@@ -148,16 +176,17 @@ export default class App extends Component {
         </nav>
           <Search returnedBooks={this.state.returnedBooks} sendBooks = {this.recieveBooks} />
        
-      </div>   
+      </div>  
+      <div id = "details"></div>
         {
           this.state.clickedBook ? <BookView book={ this.state.clickedBook } /> : ''
-        }
+        } 
       {this.state.returnedBooks ? (
-        <SearchView books={this.state.returnedBooks.items} updateBooks={this.updateBook} clickOnBook={this.clickOnBook} deleteBook={this.deleteBook} />
+        <SearchView books={this.state.returnedBooks.items} addBookFromApi = {this.addBookFromApi} />
       ): (
         ''
       )}
-      <this.ViewRender />
+      <this.ViewRender /><span id="bottom" ></span>
       </div>
     );
    }
