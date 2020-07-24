@@ -16,13 +16,12 @@ export default class SeachView extends Component {
               </div>
               {
                   !book.myCollection ?
-                     <button onClick = {()=> {  book.myCollection = !book.myCollection; this.props.updateBook(book, index)}}>Add to Collection </button> : ''
+                     <button onClick = {()=> {  book.myCollection = !book.myCollection; this.props.updateBook(book.volumeInfo, index)}}>Add to Collection </button> : ''
               }
               {
                 book.isFavorite ?
                   <button onClick={()=> {  book.isFavorite = !book.isFavorite; this.props.updateBook(book, index)}}>Unfavorite</button> : <button onClick={()=> {book.isFavorite = !book.isFavorite; this.props.updateBook(book, index)}}>Favorite</button>
               }
-              <button onClick={()=> { this.props.deleteBook( book, index ) }}>Delete</button>
               </div>
               )
             
