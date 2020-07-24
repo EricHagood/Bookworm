@@ -5,10 +5,10 @@ export default class SeachView extends Component {
    
     render() {
         return (this.props.books.map( (book, index) => {
-            return (<div key={index}>
+            return (<div className='column-container' key={index}>
               <div className='book-container' >
-                <p>Title: {book.volumeInfo.title}</p>
-                <p>Authors: { book.volumeInfo.authors.toString() }</p>        
+                <p>{book.volumeInfo.title}</p>
+                <p>{ book.volumeInfo.authors.toString() }</p>        
                 <img src = {book.volumeInfo.imageLinks ? (
                     book.volumeInfo.imageLinks.thumbnail
                     ) : (
