@@ -77,7 +77,7 @@ export default class NewForm extends Component {
                         value={ this.state.description }/>  
                         
                     <label htmlFor="thumbnail">Thumbnail: </label>
-                    <input type="text" id="thumbnail"
+                    <input type="text" id="thumbnail" placeholder='/img/book_default_thumbnail.jpeg'
                         onChange={ (evt) => this.handleChange(evt) }
                         value={ this.state.thumbnail }/>
                         <input type="submit" value="Add Book"/>
