@@ -67,9 +67,36 @@ margin-top: 10px;
     font-size: 14px;
     cursor: pointer;
   }
+  .book-add-button {
+    background-color:rgb(86,91,94);
+    border: none;
+    color: rgb(223, 220, 220);
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    font-size: 14px;
+    cursor: pointer;
+  }
 
 .thumbnail {
   height: 220px;
-  width: 240px;
+  width: 160px;
+}
+.book-container {
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  padding: 15px;
+  
+}
+.view-container {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 700px;
+  padding: 10px;
+  margin: auto;
 }
 
