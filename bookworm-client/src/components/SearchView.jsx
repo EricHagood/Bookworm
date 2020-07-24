@@ -8,7 +8,11 @@ export default class SeachView extends Component {
               <div onClick={ () => { this.props.clickOnBook(book) } }>
                 <p>Title: {book.volumeInfo.title}</p>
                 <p>Authors: { book.volumeInfo.authors.toString() }</p>        
-                <img src = {book.volumeInfo.thumbnail} className="thumbnail" alt="books"></img>
+                <img src = {book.volumeInfo.imageLinks ? (
+                    book.volumeInfo.imageLinks.thumbnail
+                    ) : (
+                        ''
+                    )} className="thumbnail" alt="books"></img>
               </div>
               {
                   !book.myCollection ?
