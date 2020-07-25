@@ -6,8 +6,8 @@ export default class HomeView extends Component {
         return (this.props.books.map( (book, index) => {
             return (<div key={index}>
               <div onClick={ () => { this.props.clickOnBook(book) } }>
-                <p>Title: {book.title}</p>
-                <p>Authors: { book.authors.toString() }</p>        
+                <p className='book-text'>Title: {book.title}</p>
+                <p className='book-tex'>Authors: { book.authors.toString() }</p>        
                 <img src = {book.thumbnail} className="thumbnail" alt="books"></img>
               </div>
               {
