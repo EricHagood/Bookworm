@@ -107,6 +107,7 @@ margin-top: 10px;
   padding: 30px;
   margin: auto;
   border: 2px solid rgb(86,91,94);
+  border-radius: 30px;
 }
 .search-results-title {
   color: rgb(86,91,94);
@@ -128,6 +129,7 @@ margin-top: 10px;
   margin: auto;
   margin-top: 0px;
   border: 2px solid rgb(86,91,94);
+  border-radius: 30px;
 }
 .button-container {
   flex-direction: row;
