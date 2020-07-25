@@ -129,7 +129,7 @@ export default class App extends Component {
 
   ViewRender = () => {
     if (this.state.currentView === 'home') {
-      return <HomeView books={this.state.books} updateBook={this.updateBook} clickOnBook={this.clickOnBook} deleteBook={this.deleteBook}/>
+      return <div className='collection-container'><HomeView books={this.state.books} updateBook={this.updateBook} clickOnBook={this.clickOnBook} deleteBook={this.deleteBook}/></div>
     } else if (this.state.currentView === 'my_collection') {
       let my_collection = []
       for (let i = 0; i < this.state.books.length; i++) {
@@ -190,6 +190,7 @@ export default class App extends Component {
         ''
       )}
       </div>
+      <h1 className='search-results-title'>My Collection</h1>
       <this.ViewRender /><span id="bottom" ></span>
       </div>
     );
