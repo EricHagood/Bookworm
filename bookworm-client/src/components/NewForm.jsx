@@ -29,7 +29,7 @@ export default class NewForm extends Component {
                 authors: this.state.authors,
                 subtitle: this.state.subtitle,
                 description: this.state.description,
-                thumbnail: this.state.thumbnail,
+                thumbnail: this.state.thumbnail !== "" ? this.state.thumbnail : 'img/book_default_thumbnail.jpeg',
                 smallimg:  this.state.smallimg,
                 isFavorite: this.state.isFavorite
             }),
@@ -77,7 +77,7 @@ export default class NewForm extends Component {
                         value={ this.state.description }/>  
                         
                     <label htmlFor="thumbnail">Thumbnail: </label>
-                    <input type="text" id="thumbnail" placeholder='/img/book_default_thumbnail.jpeg'
+                    <input type="text" id="thumbnail"
                         onChange={ (evt) => this.handleChange(evt) }
                         value={ this.state.thumbnail }/>
                         <input type="submit" value="Add Book"/>
