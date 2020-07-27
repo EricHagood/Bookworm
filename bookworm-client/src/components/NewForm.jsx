@@ -55,32 +55,34 @@ export default class NewForm extends Component {
     render() {
         return (
             <div className="add-container">
-                <form onSubmit={ (evt) => this.handleSubmit(evt) }>
-                    <label htmlFor="title">Title: </label>
-                    <input type="text" id="title"
-                        onChange={ (evt) => this.handleChange(evt) }
-                        value={ this.state.title }/>
+                <form className="add-form" onSubmit={ (evt) => this.handleSubmit(evt) }>
+                    <div className="label-container">
+                        <label className="add-label" htmlFor="title">Title: </label>
+                        <label className="add-label" htmlFor="authors">Authors: </label>
+                        <label className="add-label" htmlFor="subtitle">Subtitle: </label>
+                        <label className="add-label" htmlFor="description">Description: </label>
+                        <label className="add-label" htmlFor="thumbnail">Thumbnail: </label>
+                    </div>
+                    <div className="input-container">
+                        <input className="add-input" type="text" id="title"
+                            onChange={ (evt) => this.handleChange(evt) }
+                            value={ this.state.title }/>
+                        <input className="add-input" type="text" id="authors"
+                            onChange={ (evt) => this.handleChange(evt) }
+                            value={ this.state.authors }/>
+                        <input className="add-input" type="text" id="subtitle"
+                            onChange={ (evt) => this.handleChange(evt) }
+                            value={ this.state.subtitle }/>   
+                        <input className="add-input" type="text" id="description"
+                            onChange={ (evt) => this.handleChange(evt) }
+                            value={ this.state.description }/>  
+                        <input className="add-input" type="text" id="thumbnail" placeholder='/img/book_default_thumbnail.jpeg'
+                            onChange={ (evt) => this.handleChange(evt) }
+                            value={ this.state.thumbnail }/>
+                    </div>
+                    
+                        <input className="form-button"type="submit" value="Add Book"/>
 
-
-                    <label htmlFor="authors">Authors: </label>
-                    <input type="text" id="authors"
-                        onChange={ (evt) => this.handleChange(evt) }
-                        value={ this.state.authors }/>
-                    <label htmlFor="subtitle">Subtitle: </label>
-                    <input type="text" id="subtitle"
-                        onChange={ (evt) => this.handleChange(evt) }
-                        value={ this.state.subtitle }/>   
-
-                    <label htmlFor="description">Description: </label>
-                    <input type="text" id="description"
-                        onChange={ (evt) => this.handleChange(evt) }
-                        value={ this.state.description }/>  
-                        
-                    <label htmlFor="thumbnail">Thumbnail: </label>
-                    <input type="text" id="thumbnail"
-                        onChange={ (evt) => this.handleChange(evt) }
-                        value={ this.state.thumbnail }/>
-                        <input type="submit" value="Add Book"/>
                 </form>
             </div>
         )
