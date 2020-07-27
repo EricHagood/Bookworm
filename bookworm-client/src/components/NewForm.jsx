@@ -57,29 +57,30 @@ export default class NewForm extends Component {
             <div className="add-container">
                 <form className="add-form" onSubmit={ (evt) => this.handleSubmit(evt) }>
                     <div className="label-container">
-                        <label htmlFor="title">Title: </label>
-                        <label htmlFor="authors">Authors: </label>
-                        <label htmlFor="subtitle">Subtitle: </label>
-                        <label htmlFor="description">Description: </label>
-                        <label htmlFor="thumbnail">Thumbnail: </label>
+                        <label className="add-label" htmlFor="title">Title: </label>
+                        <label className="add-label" htmlFor="authors">Authors: </label>
+                        <label className="add-label" htmlFor="subtitle">Subtitle: </label>
+                        <label className="add-label" htmlFor="description">Description: </label>
+                        <label className="add-label" htmlFor="thumbnail">Thumbnail: </label>
                     </div>
                     <div className="input-container">
-                        <input type="text" id="title"
+                        <input className="add-input" type="text" id="title"
                             onChange={ (evt) => this.handleChange(evt) }
                             value={ this.state.title }/>
-                        <input type="text" id="authors"
+                        <input className="add-input" type="text" id="authors"
                             onChange={ (evt) => this.handleChange(evt) }
                             value={ this.state.authors }/>
-                        <input type="text" id="subtitle"
+                        <input className="add-input" type="text" id="subtitle"
                             onChange={ (evt) => this.handleChange(evt) }
                             value={ this.state.subtitle }/>   
-                        <input type="text" id="description"
+                        <input className="add-input" type="text" id="description"
                             onChange={ (evt) => this.handleChange(evt) }
                             value={ this.state.description }/>  
-                        <input type="text" id="thumbnail" placeholder='/img/book_default_thumbnail.jpeg'
+                        <input className="add-input" type="text" id="thumbnail" placeholder='/img/book_default_thumbnail.jpeg'
                             onChange={ (evt) => this.handleChange(evt) }
                             value={ this.state.thumbnail }/>
                     </div>
+                    
                         <input className="form-button"type="submit" value="Add Book"/>
                 </form>
             </div>
