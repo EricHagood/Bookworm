@@ -1,3 +1,6 @@
+body {
+  padding-bottom: 50px;
+}
 
 .header-container {
   background-image: url('/img/open_book_cropped.jpeg');

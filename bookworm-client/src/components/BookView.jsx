@@ -9,7 +9,6 @@ export default class BookView extends Component {
             <p>subtitle: { this.props.book.subtitle }</p> 
             <p>description: { this.props.book.description }</p>            
             <img src = { this.props.book.thumbnail } alt="books"></img>
-            <p>isFavorite: { this.props.book.isFavorite }</p>
             </div>
           )
     }

@@ -129,7 +129,9 @@ export default class App extends Component {
 
   ViewRender = () => {
     if (this.state.currentView === 'home') {
-      return <div className='collection-container'><HomeView books={this.state.books} updateBook={this.updateBook} clickOnBook={this.clickOnBook} deleteBook={this.deleteBook}/></div>
+      return <div><h1 className='search-results-title'>Books</h1><div className='collection-container'>
+        <HomeView books={this.state.books} updateBook={this.updateBook} clickOnBook={this.clickOnBook} deleteBook={this.deleteBook}/>
+        </div></div>
     } else if (this.state.currentView === 'my_collection') {
       let my_collection = []
       for (let i = 0; i < this.state.books.length; i++) {
@@ -137,7 +139,7 @@ export default class App extends Component {
             my_collection.push(this.state.books[i])
           }
       }
-      return <CollectionView books={my_collection} clickOnBook={this.clickOnBook} />
+      return <div><h1 className='search-results-title'>My Collection</h1><CollectionView books={my_collection} clickOnBook={this.clickOnBook} /></div>
     } else if (this.state.currentView === 'favorites') {
       let favorites = []
       for (let i = 0; i < this.state.books.length; i++) {
@@ -145,9 +147,9 @@ export default class App extends Component {
             favorites.push(this.state.books[i])
           }
       }
-      return <FavoriteView books={favorites} clickOnBook={this.clickOnBook} />
+      return <div><h1 className='search-results-title'>Favorites</h1><FavoriteView books={favorites} clickOnBook={this.clickOnBook} /></div>
     } else if (this.state.currentView === 'add') {
-      return <NewForm baseUrl={ baseUrl } addBook={ this.addBook}/>
+      return <div><h1 className='search-results-title'>Add Book</h1><NewForm baseUrl={ baseUrl } addBook={ this.addBook}/></div>
     }
   }
 
@@ -172,7 +174,7 @@ export default class App extends Component {
           </div>
           <span className="nav-item" onClick={ () => { this.setState({ currentView : 'my_collection' }) } }> My Collections</span> 
           <span className="nav-item" onClick={ () => { this.setState({ currentView : 'favorites' }) } }> Favorites</span> 
-          <span className="nav-item" onClick={ () => { this.setState({ currentView : 'add' }) } }> Add Book</span> 
+          <span className="nav-item" onClick={ () => { this.setState({ currentView : 'add' }) } }>Add Book</span> 
         </nav>
           <Search returnedBooks={this.state.returnedBooks} sendBooks = {this.recieveBooks} />
        
@@ -190,7 +192,7 @@ export default class App extends Component {
         ''
       )}
       </div>
-      <h1 className='search-results-title'>My Collection</h1>
+      
       <this.ViewRender /><span id="bottom" ></span>
       </div>
     );
