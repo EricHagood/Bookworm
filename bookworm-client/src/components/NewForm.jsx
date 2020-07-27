@@ -55,32 +55,32 @@ export default class NewForm extends Component {
     render() {
         return (
             <div className="add-container">
-                <form onSubmit={ (evt) => this.handleSubmit(evt) }>
-                    <label htmlFor="title">Title: </label>
-                    <input type="text" id="title"
-                        onChange={ (evt) => this.handleChange(evt) }
-                        value={ this.state.title }/>
-
-
-                    <label htmlFor="authors">Authors: </label>
-                    <input type="text" id="authors"
-                        onChange={ (evt) => this.handleChange(evt) }
-                        value={ this.state.authors }/>
-                    <label htmlFor="subtitle">Subtitle: </label>
-                    <input type="text" id="subtitle"
-                        onChange={ (evt) => this.handleChange(evt) }
-                        value={ this.state.subtitle }/>   
-
-                    <label htmlFor="description">Description: </label>
-                    <input type="text" id="description"
-                        onChange={ (evt) => this.handleChange(evt) }
-                        value={ this.state.description }/>  
-                        
-                    <label htmlFor="thumbnail">Thumbnail: </label>
-                    <input type="text" id="thumbnail" placeholder='/img/book_default_thumbnail.jpeg'
-                        onChange={ (evt) => this.handleChange(evt) }
-                        value={ this.state.thumbnail }/>
-                        <input type="submit" value="Add Book"/>
+                <form clasName="add-form" onSubmit={ (evt) => this.handleSubmit(evt) }>
+                    <div className="label-container">
+                        <label htmlFor="title">Title: </label>
+                        <label htmlFor="authors">Authors: </label>
+                        <label htmlFor="subtitle">Subtitle: </label>
+                        <label htmlFor="description">Description: </label>
+                        <label htmlFor="thumbnail">Thumbnail: </label>
+                    </div>
+                    <div className="input-container">
+                        <input type="text" id="title"
+                            onChange={ (evt) => this.handleChange(evt) }
+                            value={ this.state.title }/>
+                        <input type="text" id="authors"
+                            onChange={ (evt) => this.handleChange(evt) }
+                            value={ this.state.authors }/>
+                        <input type="text" id="subtitle"
+                            onChange={ (evt) => this.handleChange(evt) }
+                            value={ this.state.subtitle }/>   
+                        <input type="text" id="description"
+                            onChange={ (evt) => this.handleChange(evt) }
+                            value={ this.state.description }/>  
+                        <input type="text" id="thumbnail" placeholder='/img/book_default_thumbnail.jpeg'
+                            onChange={ (evt) => this.handleChange(evt) }
+                            value={ this.state.thumbnail }/>
+                    </div>
+                        <input className="form-button"type="submit" value="Add Book"/>
                 </form>
             </div>
         )
