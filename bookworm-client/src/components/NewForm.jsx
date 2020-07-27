@@ -55,7 +55,7 @@ export default class NewForm extends Component {
     render() {
         return (
             <div className="add-container">
-                <form clasName="add-form" onSubmit={ (evt) => this.handleSubmit(evt) }>
+                <form className="add-form" onSubmit={ (evt) => this.handleSubmit(evt) }>
                     <div className="label-container">
                         <label htmlFor="title">Title: </label>
                         <label htmlFor="authors">Authors: </label>
