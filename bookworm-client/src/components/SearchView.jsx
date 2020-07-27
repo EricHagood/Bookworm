@@ -4,7 +4,6 @@ export default class SeachView extends Component {
 
    
     render() {
-        console.log(this.props.books);
         return (!(this.props.books && this.props.books.length  > 0) ? '' : this.props.books.map( (book, index) => {
             return (<div className='column-container' key={index}>
               <div className='book-container' >
