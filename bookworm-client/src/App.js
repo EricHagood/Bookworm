@@ -127,6 +127,12 @@ export default class App extends Component {
     
   }
 
+  clearBook = () => {
+    this.setState({
+      clickedBook: null
+    })
+  }
+
   ViewRender = () => {
     if (this.state.currentView === 'home') {
       return <div><h1 className='search-results-title'>Books</h1><div className='collection-container'>
@@ -169,21 +175,19 @@ export default class App extends Component {
         </div>
       <div div className="nav-container">
         <nav>
-          <div className="nav-item">
-          <span onClick={ () => { this.setState({ currentView : 'home' }) } }>Home </span> 
-          </div>
-          <span className="nav-item" onClick={ () => { this.setState({ currentView : 'my_collection' }) } }> My Collections</span> 
-          <span className="nav-item" onClick={ () => { this.setState({ currentView : 'favorites' }) } }> Favorites</span> 
-          <span className="nav-item" onClick={ () => { this.setState({ currentView : 'add' }) } }>Add Book</span> 
+          <span className={ this.state.currentView === 'home' ? 'nav-item selected' : 'nav-item' } onClick={ () => { this.setState({ currentView : 'home', clickedBook: null, returnedBooks: [] })} }>Home </span> 
+          {/* <span className="nav-item" onClick={ () => { this.setState({ currentView : 'my_collection' }) } }> My Collections</span>  */}
+          <span className={ this.state.currentView === 'favorites' ? 'nav-item selected' : 'nav-item' } onClick={ () => { this.setState({ currentView : 'favorites', clickedBook: null, returnedBooks: [] }) } }> Favorites</span> 
+          <span className={ this.state.currentView === 'add' ? 'nav-item selected' : 'nav-item' } onClick={ () => { this.setState({ currentView : 'add', clickedBook: null, returnedBooks: [] }) } }>Add Book</span> 
         </nav>
           <Search returnedBooks={this.state.returnedBooks} sendBooks = {this.recieveBooks} />
        
       </div>  
+      {
+          this.state.clickedBook ? <div className='view-container' id = "details"><BookView book={ this.state.clickedBook } clearBook={this.clearBook} /></div> : ''
+      } 
       <h1 className='search-results-title'> Search Results</h1>
       <div className='view-container' id = "details">
-        {
-          this.state.clickedBook ? <BookView book={ this.state.clickedBook } /> : ''
-        } 
       {this.state.returnedBooks ? (
       
         <SearchView books={this.state.returnedBooks.items} addBookFromApi = {this.addBookFromApi} />
