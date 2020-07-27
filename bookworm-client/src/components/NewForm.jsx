@@ -29,7 +29,7 @@ export default class NewForm extends Component {
                 authors: this.state.authors,
                 subtitle: this.state.subtitle,
                 description: this.state.description,
-                thumbnail: this.state.thumbnail,
+                thumbnail: this.state.thumbnail !== "" ? this.state.thumbnail : 'img/book_default_thumbnail.jpeg',
                 smallimg:  this.state.smallimg,
                 isFavorite: this.state.isFavorite
             }),
@@ -82,6 +82,7 @@ export default class NewForm extends Component {
                     </div>
                     
                         <input className="form-button"type="submit" value="Add Book"/>
+
                 </form>
             </div>
         )
