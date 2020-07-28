@@ -16,5 +16,5 @@ One unsolved problem is user authentication.
 
 #Deployed Repos
 We had to create new repositories for front and back end in order to deploy them to heroku, so here is the link to those repositories:
-https://github.com/EricHagood/bookworm_client
+https://github.com/EricHagood/bookworm_client                                                                                                                       
 https://github.com/EricHagood/Bookworm_API
