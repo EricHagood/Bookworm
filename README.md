@@ -13,3 +13,8 @@ This project was created using React for the front end web page and, express, mo
 The approach taken from the backend was to quickly set up the database with all of the necessary routes and whitelists and then begin using curl requests to test that data could be added, sent, updated, and deleted.  For the front end API call to Google Books, we take in a search parameter for the book title and send a request to the api, then we take the returned data and display it on the page for the user to view so they can choose which book to add to their collection.
 # Unsolved problems
 One unsolved problem is user authentication.
+
+#Deployed Repos
+We had to create new repositories for front and back end in order to deploy them to heroku, so here is the link to those repositories:
+https://github.com/EricHagood/bookworm_client
+https://github.com/EricHagood/Bookworm_API
